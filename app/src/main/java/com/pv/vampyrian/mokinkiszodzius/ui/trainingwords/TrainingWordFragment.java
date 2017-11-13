@@ -54,6 +54,9 @@ public class TrainingWordFragment extends Fragment {
             public void onChanged(@Nullable List<WordEntity> wordEntities) {
                 if (wordEntities.size()>0) {
                     mWordList = wordEntities;
+                    if(mBinding.getWord() == null) {
+                        showNextWord();
+                    }
                 } else {
                     Toast.makeText(getContext(), R.string.toast_no_lesson_sellected, Toast.LENGTH_LONG).show();
                 }

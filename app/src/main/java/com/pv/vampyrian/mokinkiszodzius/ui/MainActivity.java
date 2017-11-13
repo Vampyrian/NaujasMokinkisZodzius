@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity
     private static final String LOG_TAG = "Main Activity";
     private static final String PREFERENCE = "myPreference";
     private static final String IS_FIRST_START = "firstStart";
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
