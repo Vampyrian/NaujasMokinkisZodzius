@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="isLoading"
+            type="boolean"/>
+        <variable
+            name="lessonListFragment"
+            type="com.pv.vampyrian.mokinkiszodzius.ui.lessonlist.LessonListFragment"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/fab_margin"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{lessonListFragment::fabButtonClicked}"
+            android:visibility="visible"
+            app:elevation="@dimen/fab_elevation"
+            app:pressedTranslationZ="12dp"
+            app:fabSize="normal"
+            app:srcCompat="@drawable/ic_plus" />
+
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lesson_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="LinearLayoutManager" />
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mokinkis žodžius</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Nustatymai</string>
+
+    <!--Toast tesktai-->
+    <string name="toast_function_not_working">Funkcija pakolkas neveikia</string>
+    <string name="toast_no_lesson_sellected">Nėra pasirinkta pamokų, arba pasirinktose pamokose nėra žodžių</string>
+
+    <!--Visokie mygtukai viduri programos-->
+    <string name="save">Saugoti</string>
+    <string name="delete">Trinti</string>
+    <string name="user_name">Vartpotojo vardas</string>
+    <string name="user_email">Vartotojas@vardas.com</string>
+    <string name="know">Žinau</string>
+    <string name="dont_know">Nežinau</string>
+    <string name="word">Įvesk Naują Žodį</string>
+    <string name="translate">Įvesk Vertimą</string>
+    <string name="edit_button">Redagavimas</string>
+    <string name="new_lesson_name">Įvesk Naują Pamoką</string>
+    <string name="sign_in_email">Įvesk paštą</string>
+    <string name="sing_in_password">Įvesk Slaptažodį</string>
+    <string name="sing_in_signin">Prisijungti</string>
+    <string name="sing_in_create_account">Sukurti paskyrą</string>
+
+    <!--Drawerio meniu resursai-->
+    <string name="drawer_lesson">Pamoka</string>
+    <string name="drawer_lernning">Mokintis</string>
+    <string name="drawer_tarining">Training</string>
+    <string name="drawer_instrument">Instrument</string>
+    <string name="drawer_share">Dalintis</string>
+    <string name="drawer_connect_to_account">Prisijungti</string>
+    <string name="drawer_communicate">Komunikacija</string>
+
+
+
+    <!--Preference resursai-->
+    <string name="preference_randomizing">Maišyti</string>
+    <string name="preference_first_show_translate">Pirma vertimas</string>
+    <string name="preference_random_summary">Žodžius rodyti atsitiktine tvarka</string>
+    <string name="preference_translate_summary">Pirma rodyti žodžio vertimą</string>
+
+
+    <!--Toolbar aprasymai-->
+    <string name="toolbar_lesson_list">Pamokos</string>
+    <string name="toolbar_word_list">Žodžiai</string>
+    <string name="toolbar_lesson_edit">Nauja Pamoka</string>
+    <string name="toolbar_word_edit">Naujas Žodis</string>
+    <string name="toolbar_training">Tikrinti</string>
+    <string name="toolbar_learning">Mokintis</string>
+    <string name="toolbar_preference">Nustatymai</string>
+    <string name="toolbar_sing_in">Prisijungti</string>
+
+    <!--Kvaila pirma pamoka-->
+    <string name="dummy_lesson">Pirma Pamoka</string>
+    <string name="dummy_word1">Table</string>
+    <string name="dummy_word_translate1">Stalas</string>
+    <string name="dummy_word2">School</string>
+    <string name="dummy_word_translate2">Mokykla</string>
+    <string name="dummy_word3">Teacher</string>
+    <string name="dummy_word_translate3">Mokytoja</string>
+    <string name="dummy_word4">Lesson</string>
+    <string name="dummy_word_translate4">Pamoka</string>
+    <string name="dummy_word5">Pencil</string>
+    <string name="dummy_word_translate5">Pieštukas</string>
+    <string name="dummy_word6">Book</string>
+    <string name="dummy_word_translate6">Knyga</string>
+    <string name="dummy_word7">Friend</string>
+    <string name="dummy_word_translate7">Draugas</string>
+
+
+
+
+</resources>

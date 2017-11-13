@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_lesson"
+            android:icon="@drawable/ic_lesson"
+            android:title="@string/drawer_lesson" />
+        <item
+            android:id="@+id/nav_lerning"
+            android:icon="@drawable/ic_lerning"
+            android:title="@string/drawer_lernning" />
+        <item
+            android:id="@+id/nav_training"
+            android:icon="@drawable/ic_testing"
+            android:title="@string/drawer_tarining" />
+    </group>
+
+    <item android:title="@string/drawer_communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_log_in"
+                android:icon="@drawable/ic_log_in"
+                android:title="@string/drawer_connect_to_account" />
+        </menu>
+    </item>
+
+</menu>

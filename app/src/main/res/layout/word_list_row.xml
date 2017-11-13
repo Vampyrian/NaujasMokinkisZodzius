@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="word"
+            type="com.pv.vampyrian.mokinkiszodzius.room.entityAndDao.WordEntity"/>
+        <variable
+            name="callback"
+            type="com.pv.vampyrian.mokinkiszodzius.ui.wordlist.WordListFragment.WordAdapterCallback"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_height"
+        app:cardBackgroundColor="@color/cardView_background"
+        app:cardCornerRadius="@dimen/cardView_corner_radius"
+        app:cardElevation="@dimen/cardView_elevation"
+        app:contentPadding="@dimen/cardView_content_pading">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/word"
+                style="@style/RowTextView.Word"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/textView_height"
+                android:layout_marginEnd="8dp"
+                android:text="@{word.word}"
+                app:layout_constraintEnd_toStartOf="@+id/button"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            <TextView
+                android:id="@+id/translate_word"
+                style="@style/RowTextView"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/textView_height"
+                android:layout_marginEnd="8dp"
+                android:text="@{word.translateWord}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button"
+                app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+
+
+            <ImageButton
+                android:id="@+id/button"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:adjustViewBounds="false"
+                android:contentDescription="@string/edit_button"
+                android:onClick="@{() -> callback.onEdit(word)}"
+                style="@style/ImageButtonInRow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/edit_icon" />
+
+
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/row_start_pading"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="70dp"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:indeterminate="false"
+                android:indeterminateOnly="false"
+                android:background="@drawable/progress_bar_background"
+                android:progressDrawable="@drawable/progress_bar_progress"
+                android:max="100"
+                android:progress="@{word.rating}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/word"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</layout>

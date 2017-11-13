@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2a9cfd</color>
+    <color name="colorPrimaryDark">#006ec9</color>
+    <color name="colorAccent">#ff288c</color>
+    <color name="cardView_background">#ffffff</color>
+    <color name="ic_symbol">#070707</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="red">#ff0b0f</color>
+    <color name="green">#77f97b</color>
+    <color name="navigationView_icon_and_text">#5b6664</color>
+    <color name="launcher_icon_background">#2A9CFD</color>
+    <color name="row_divider">#cacaca</color>
+    <color name="fab">#ff288c</color>
+</resources>
