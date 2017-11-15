@@ -11,11 +11,18 @@ import com.pv.vampyrian.mokinkiszodzius.ui.wordlist.WordListFragment;
 
 public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        showLessonsListFragment();
+        return true;
+    }
     /*
-    Navigacija tarp fragmentu
-     */
+        Navigacija tarp fragmentu
+         */
     public void showLessonsListFragment () {
-        getSupportActionBar().setTitle(R.string.toolbar_lesson_list);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         LessonListFragment fragment = new LessonListFragment();
 
         getSupportFragmentManager()
@@ -26,7 +33,7 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
     }
 
     public void showWordsListFragment (long lessonId) {
-        getSupportActionBar().setTitle(R.string.toolbar_word_list);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         WordListFragment fragment = WordListFragment.createWordListFragmentForLessonId(lessonId);
 
         getSupportFragmentManager()
@@ -37,7 +44,7 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
     }
 
     public void showLessonEditFragment (long lessonId) {
-        getSupportActionBar().setTitle(R.string.toolbar_lesson_edit);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         LessonEditFragment fragment = LessonEditFragment.createLessonEditFragmnetForLessonId(lessonId);
 
         getSupportFragmentManager()
@@ -48,7 +55,7 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
     }
 
     public void showWordEditFragmentWithLessonIdAndWordId (long lessonId, long wordId) {
-        getSupportActionBar().setTitle(R.string.toolbar_word_edit);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         WordEditFragment fragment = WordEditFragment.createWordEditFragmendWithLessonIdAndWordId(lessonId, wordId);
 
         getSupportFragmentManager()
@@ -59,7 +66,7 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
     }
 
     public void showTrainingFragment () {
-        getSupportActionBar().setTitle(R.string.toolbar_training);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         TrainingWordFragment fragment = new TrainingWordFragment();
 
         getSupportFragmentManager()
@@ -70,7 +77,7 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
     }
 
     public void showPreferenceFragment () {
-        getSupportActionBar().setTitle(R.string.toolbar_preference);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         MyPreferenceFragment fragment = new MyPreferenceFragment();
 
         getSupportFragmentManager()
@@ -81,7 +88,6 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
     }
 
     public void showSignInFragment () {
-        getSupportActionBar().setTitle(R.string.toolbar_sing_in);
         SignInFragment fragment = new SignInFragment();
 
         getSupportFragmentManager()

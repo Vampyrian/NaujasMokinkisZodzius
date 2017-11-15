@@ -28,7 +28,7 @@ public class Repository {
     }
 
     public synchronized static Repository getInstance (LessonDao lessonDao, WordDao wordDao, AppExecutor appExecutor) {
-        Log.d(LOG_TAG, "Prasideda Repositori kurimas is " + Thread.currentThread().getName());
+        Log.d(LOG_TAG, "Uzprase repositorijos instanco is " + Thread.currentThread().getName());
         if (sInstance == null) {
             synchronized (LOCK) {
                 sInstance = new Repository(lessonDao, wordDao, appExecutor);
