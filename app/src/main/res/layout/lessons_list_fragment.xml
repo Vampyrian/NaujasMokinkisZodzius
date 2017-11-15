@@ -25,11 +25,11 @@
             android:layout_margin="@dimen/fab_margin"
             android:clickable="true"
             android:focusable="true"
-            android:onClick="@{lessonListFragment::fabButtonClicked}"
+            android:onClick="@{() -> lessonListFragment.fabButtonClicked()}"
             android:visibility="visible"
             app:elevation="@dimen/fab_elevation"
-            app:pressedTranslationZ="12dp"
             app:fabSize="normal"
+            app:pressedTranslationZ="12dp"
             app:srcCompat="@drawable/ic_plus" />
 
 

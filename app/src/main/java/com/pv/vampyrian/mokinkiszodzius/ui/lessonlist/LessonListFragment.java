@@ -65,16 +65,14 @@ public class LessonListFragment extends Fragment {
         });
     }
 
-
-
-
     //***************Apdirbam UI paspaudimus
 
-    public void fabButtonClicked(View view) {
+    public void fabButtonClicked() {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
             ((MainActivity) getActivity()).showLessonEditFragment(-1);
         }
     }
+
 
     private final LessonsAdapterCallback mLessonAdapterCallback = new LessonsAdapterCallback() {
         @Override
