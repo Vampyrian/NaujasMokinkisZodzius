@@ -2,30 +2,27 @@ package com.pv.vampyrian.mokinkiszodzius.ui.wordedit;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 
 import com.pv.vampyrian.mokinkiszodzius.R;
 import com.pv.vampyrian.mokinkiszodzius.databinding.WordEditFragmentBinding;
 import com.pv.vampyrian.mokinkiszodzius.room.entityAndDao.WordEntity;
 import com.pv.vampyrian.mokinkiszodzius.ui.MainActivity;
-import com.pv.vampyrian.mokinkiszodzius.util.InjectorUtils;
+import com.pv.vampyrian.mokinkiszodzius.ui.base.BaseFragment;
 
 import java.util.Objects;
 
-public class WordEditFragment extends Fragment {
+public class WordEditFragment extends BaseFragment {
 
+    private static final String LOG_TAG = WordEditFragment.class.getSimpleName();
     private static final String LESSON_ID = "lesson_id";
     private static final String WORD_ID = "word_id";
 
-    private WordEditViewModel mWordEditViewModel;
 
     private WordEditFragmentBinding mBinging;
 
@@ -42,26 +39,13 @@ public class WordEditFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        WordEditViewModelFactory factory =
-                InjectorUtils.provideWordEditViewMOdelFactory(getContext(),getArguments().getLong(WORD_ID));
-
-        mWordEditViewModel = ViewModelProviders.of(this,factory).get(WordEditViewModel.class);
-        subscribeToModel(mWordEditViewModel);
-    }
-
-    private void subscribeToModel(WordEditViewModel model) {
-        model.getObservableWord().observe(this, new Observer<WordEntity>() {
+        sharedViewModel.getObservableWordWithId(getArguments().getLong(WORD_ID)).observe(this, new Observer<WordEntity>() {
             @Override
             public void onChanged(@Nullable WordEntity wordEntity) {
                 mBinging.setWord(wordEntity);
             }
         });
     }
-
-//    private void hideKeyboard (View v) {
-//        InputMethodManager imn = (InputMethodManager) getContext().getSystemService(getContext().INPUT_METHOD_SERVICE);
-//        imn.hideSoftInputFromWindow(v.getWindowToken(), 0);
-//    }
 
     //***********************Apdirbam UI paspaudimus
     public void saveWordClicked (View view) {
@@ -70,7 +54,7 @@ public class WordEditFragment extends Fragment {
             word.setWord(mBinging.word.getText().toString());
             word.setTranslateWord(mBinging.translate.getText().toString());
             if (!Objects.equals(word.getTranslateWord(), "") &&  !(Objects.equals(word.getWord(), ""))) {
-                mWordEditViewModel.updateWord(word);
+                sharedViewModel.updateWord(word);
             }
         } else {
             WordEntity newWord = new WordEntity();
@@ -79,19 +63,17 @@ public class WordEditFragment extends Fragment {
             newWord.setRating(0);
             newWord.setParentId(getArguments().getLong(LESSON_ID));
             if (!Objects.equals(newWord.getTranslateWord(), "") &&  !(Objects.equals(newWord.getWord(), ""))) {
-                mWordEditViewModel.insertWord(newWord);
+                sharedViewModel.insertWord(newWord);
             }
         }
-//        hideKeyboard(view);
         showWordListFragment();
     }
 
     public void deleteWordClicked (View view) {
         if (getArguments().getLong(WORD_ID) != -1) {
             WordEntity word = mBinging.getWord();
-            mWordEditViewModel.deteleWord(word);
+            sharedViewModel.deteleWord(word);
         }
-//        hideKeyboard(view);
         showWordListFragment();
     }
 

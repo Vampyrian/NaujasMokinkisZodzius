@@ -2,30 +2,26 @@ package com.pv.vampyrian.mokinkiszodzius.ui.lessonedit;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 
 import com.pv.vampyrian.mokinkiszodzius.R;
 import com.pv.vampyrian.mokinkiszodzius.databinding.LessonEditFragmentBinding;
 import com.pv.vampyrian.mokinkiszodzius.room.entityAndDao.LessonEntity;
 import com.pv.vampyrian.mokinkiszodzius.ui.MainActivity;
-import com.pv.vampyrian.mokinkiszodzius.util.InjectorUtils;
+import com.pv.vampyrian.mokinkiszodzius.ui.base.BaseFragment;
 
 import java.util.Date;
 import java.util.Objects;
 
-public class LessonEditFragment extends Fragment {
+public class LessonEditFragment extends BaseFragment {
 
-    private static String LESSON_ID;
-
-    private LessonEditViewModel mLessonEditViewModel;
+    private static final String LOG_TAG = LessonEditFragment.class.getSimpleName();
+    private static final String LESSON_ID = "lesson_id";
 
     private LessonEditFragmentBinding mBinding;
 
@@ -42,31 +38,16 @@ public class LessonEditFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        LessonEditViewModelFactory lessonEditViewModelFactory =
-                InjectorUtils.provideLessonEditViewModelFactory(getContext(),getArguments().getLong(LESSON_ID));
-        mLessonEditViewModel = ViewModelProviders.of(this, lessonEditViewModelFactory).get(LessonEditViewModel.class);
-
         long lessonId = getArguments().getLong(LESSON_ID);
         if (lessonId != -1) {
-            subscribeUI(mLessonEditViewModel);
+            sharedViewModel.getObservableLessonWithId(getArguments().getLong(LESSON_ID)).observe(this, new Observer<LessonEntity>() {
+                @Override
+                public void onChanged(@Nullable LessonEntity lessonEntity) {
+                    mBinding.setLesson(lessonEntity);
+                }
+            });
         }
     }
-
-    private void subscribeUI(LessonEditViewModel viewModel) {
-        viewModel.getObsorvableLesson().observe(this, new Observer<LessonEntity>() {
-            @Override
-            public void onChanged(@Nullable LessonEntity lessonEntity) {
-                mBinding.setLesson(lessonEntity);
-            }
-        });
-    }
-
-    private void hideKeyboard (View v) {
-        InputMethodManager imn = (InputMethodManager) getContext().getSystemService(getContext().INPUT_METHOD_SERVICE);
-        imn.hideSoftInputFromWindow(v.getWindowToken(), 0);
-    }
-
-
 
     //***********************Apdirbam UI paspaudimus
     public void saveLessonClicked (View view) {
@@ -77,7 +58,7 @@ public class LessonEditFragment extends Fragment {
             lesson.setName(mBinding.word.getText().toString());
             lesson.setTimeId(date);
             if (!Objects.equals(lesson.getName(), "")) {
-                mLessonEditViewModel.updateLesson(lesson);
+                sharedViewModel.updateLesson(lesson);
             }
         } else {
             LessonEntity newLesson = new LessonEntity();
@@ -86,10 +67,10 @@ public class LessonEditFragment extends Fragment {
             newLesson.setRating(0);
             newLesson.setTimeId(date);
             if (!Objects.equals(newLesson.getName(), "")) {
-                mLessonEditViewModel.insertLesson(newLesson);
+                sharedViewModel.insertLesson(newLesson);
             }
         }
-        hideKeyboard(view);
+        hideKeyboard();
         showLessonListFragment();
     }
 
@@ -98,9 +79,9 @@ public class LessonEditFragment extends Fragment {
         if (lessonId != -1) {
             LessonEntity lesson = new LessonEntity();
             lesson.setLessonId(lessonId);
-            mLessonEditViewModel.deleteLesson(lesson);
+            sharedViewModel.deleteLesson(lesson);
         }
-        hideKeyboard(view);
+        hideKeyboard();
         showLessonListFragment();
     }
 

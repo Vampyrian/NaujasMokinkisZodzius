@@ -95,8 +95,6 @@ public class MainActivity extends NavigationBetweenFragmentActivity
 
         if (id == R.id.nav_lesson) {
             showLessonsListFragment();
-        } else if (id == R.id.nav_lerning) {
-            showLerningFragment();
         } else if (id == R.id.nav_training) {
             showTrainingFragment();
         } else if (id == R.id.nav_log_in) {

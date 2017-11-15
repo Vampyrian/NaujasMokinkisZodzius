@@ -1,14 +1,11 @@
 package com.pv.vampyrian.mokinkiszodzius.ui.lessonlist;
 
-
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,20 +15,16 @@ import com.pv.vampyrian.mokinkiszodzius.R;
 import com.pv.vampyrian.mokinkiszodzius.databinding.LessonsListFragmentBinding;
 import com.pv.vampyrian.mokinkiszodzius.room.entityAndDao.LessonEntity;
 import com.pv.vampyrian.mokinkiszodzius.ui.MainActivity;
-import com.pv.vampyrian.mokinkiszodzius.util.InjectorUtils;
+import com.pv.vampyrian.mokinkiszodzius.ui.base.BaseFragment;
 
 import java.util.List;
 
 //Fragment atsakingas uz pamoku saraso rodyma
-public class LessonListFragment extends Fragment {
+public class LessonListFragment extends BaseFragment {
 
-    public static final String TAG = "LessonListFragment";
-
+    public static final String TAG = LessonListFragment.class.getSimpleName();
     private LessonsListFragmentBinding mBinding;
-
     private LessonAdapter mLessonAdapter;
-
-    private LessonListViewModel mLessonViewModel;
 
     @Nullable
     @Override
@@ -51,19 +44,24 @@ public class LessonListFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        LessonListViewModelFactory lessonListViewModelFactory = InjectorUtils.provideLessonListViewModelFactory(getContext());
-        mLessonViewModel = ViewModelProviders.of(this, lessonListViewModelFactory).get(LessonListViewModel.class);
-        subscribeUI(mLessonViewModel);
-    }
-
-    private void subscribeUI(LessonListViewModel viewModel) {
-        viewModel.getObservableLesson().observe(this, new Observer<List<LessonEntity>>() {
+        sharedViewModel.getAllObservableLesson().observe(this, new Observer<List<LessonEntity>>() {
             @Override
             public void onChanged(@Nullable List<LessonEntity> lessonList) {
                 mLessonAdapter.setLessonList(lessonList);
             }
         });
     }
+
+
+
+
+
+
+
+
+
+
+
 
     //***************Apdirbam UI paspaudimus
 
@@ -73,12 +71,11 @@ public class LessonListFragment extends Fragment {
         }
     }
 
-
     private final LessonsAdapterCallback mLessonAdapterCallback = new LessonsAdapterCallback() {
         @Override
         public void onSelect(@NonNull LessonEntity lesson) {
             lesson.setSelected(lesson.getSelected() == 1 ? 0 : 1);
-            mLessonViewModel.updateLesson(lesson);
+            sharedViewModel.updateLesson(lesson);
     }
 
         @Override

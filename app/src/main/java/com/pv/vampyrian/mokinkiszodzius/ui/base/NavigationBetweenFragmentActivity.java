@@ -1,7 +1,6 @@
 package com.pv.vampyrian.mokinkiszodzius.ui.base;
 
 import com.pv.vampyrian.mokinkiszodzius.R;
-import com.pv.vampyrian.mokinkiszodzius.ui.lerningwords.LerningWordFragment;
 import com.pv.vampyrian.mokinkiszodzius.ui.lessonedit.LessonEditFragment;
 import com.pv.vampyrian.mokinkiszodzius.ui.lessonlist.LessonListFragment;
 import com.pv.vampyrian.mokinkiszodzius.ui.preference.MyPreferenceFragment;
@@ -62,17 +61,6 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
     public void showTrainingFragment () {
         getSupportActionBar().setTitle(R.string.toolbar_training);
         TrainingWordFragment fragment = new TrainingWordFragment();
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.main_fragments_container, fragment, null)
-                .commit();
-        hideKeyboard();
-    }
-
-    public void showLerningFragment () {
-        getSupportActionBar().setTitle(R.string.toolbar_learning);
-        LerningWordFragment fragment = new LerningWordFragment();
 
         getSupportFragmentManager()
                 .beginTransaction()
