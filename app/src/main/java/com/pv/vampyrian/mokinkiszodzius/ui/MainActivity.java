@@ -25,12 +25,39 @@ public class MainActivity extends NavigationBetweenFragmentActivity{
     private static final String IS_FIRST_START = "firstStart";
 
     private MainActivityBinding mBinding;
+//    private MyPageAdapter mPageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.main_activity);
         mBinding.tabLayout.setOnTabSelectedListener(tabSelectedListener);
+
+
+//        mPageAdapter = new MyPageAdapter(getSupportFragmentManager());
+//
+//        mBinding.mainFragmentsContainer.setAdapter(mPageAdapter);
+//        mBinding.mainFragmentsContainer.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//                int a = 7;
+//
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                mBinding.tabLayout.getTabAt(position).select();
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
+
+
+
         getSupportActionBar().setElevation(0);
 
         chechPreference();
@@ -66,9 +93,11 @@ public class MainActivity extends NavigationBetweenFragmentActivity{
         public void onTabSelected(TabLayout.Tab tab) {
             int position = tab.getPosition();
             if (position == 0) {
+//                mBinding.mainFragmentsContainer.setCurrentItem(0);
                 showLessonsListFragment();
             }
             if (position ==1) {
+//                mBinding.mainFragmentsContainer.setCurrentItem(1);
                 showTrainingFragment();
             }
         }
