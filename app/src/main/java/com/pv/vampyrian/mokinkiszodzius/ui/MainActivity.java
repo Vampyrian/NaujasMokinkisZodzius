@@ -93,11 +93,9 @@ public class MainActivity extends NavigationBetweenFragmentActivity{
         public void onTabSelected(TabLayout.Tab tab) {
             int position = tab.getPosition();
             if (position == 0) {
-//                mBinding.mainFragmentsContainer.setCurrentItem(0);
-                showLessonsListFragment();
+                showLessonsListFragment1();
             }
             if (position ==1) {
-//                mBinding.mainFragmentsContainer.setCurrentItem(1);
                 showTrainingFragment();
             }
         }

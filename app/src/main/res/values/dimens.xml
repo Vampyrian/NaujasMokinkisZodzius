@@ -14,4 +14,8 @@
     <dimen name="fab_elevation">6dp</dimen>
     <dimen name="row_start_pading">65dp</dimen>
 
+
+    <integer name="fragment_animation">100</integer>
+    <integer name="fragment_animation_startOffset">30</integer>
+
 </resources>

@@ -19,18 +19,8 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
         return true;
     }
     /*
-        Navigacija tarp fragmentu
-         */
-    public void showLessonsListFragment () {
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        LessonListFragment fragment = new LessonListFragment();
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.main_fragments_container, fragment, null)
-                .commit();
-        hideKeyboard();
-    }
+    Navigacija tarp fragmentu
+    */
 
     public void showWordsListFragment (long lessonId) {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -38,6 +28,7 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
+                .setCustomAnimations(R.anim.appear, R.anim.disapier)
                 .replace(R.id.main_fragments_container, fragment, null)
                 .commit();
         hideKeyboard();
@@ -49,6 +40,7 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
+                .setCustomAnimations(R.anim.appear, R.anim.disapier)
                 .replace(R.id.main_fragments_container, fragment, null)
                 .commit();
         hideKeyboard();
@@ -60,6 +52,31 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
+                .setCustomAnimations(R.anim.appear, R.anim.disapier)
+                .replace(R.id.main_fragments_container, fragment, null)
+                .commit();
+        hideKeyboard();
+    }
+
+    public void showLessonsListFragment () {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        LessonListFragment fragment = new LessonListFragment();
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setCustomAnimations(R.anim.appear, R.anim.disapier)
+                .replace(R.id.main_fragments_container, fragment, null)
+                .commit();
+        hideKeyboard();
+    }
+
+    public void showLessonsListFragment1 () {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        LessonListFragment fragment = new LessonListFragment();
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setCustomAnimations(R.anim.slide_left_in, R.anim.slide_left_out)
                 .replace(R.id.main_fragments_container, fragment, null)
                 .commit();
         hideKeyboard();
@@ -71,6 +88,8 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
+                .setCustomAnimations(R.anim.appear, R.anim.disapier)
+                .setCustomAnimations(R.anim.slide_right_in, R.anim.slide_right_out)
                 .replace(R.id.main_fragments_container, fragment, null)
                 .commit();
         hideKeyboard();
@@ -82,6 +101,7 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
+                .setCustomAnimations(R.anim.appear, R.anim.disapier)
                 .replace(R.id.main_fragments_container, fragment, null)
                 .commit();
         hideKeyboard();
@@ -92,6 +112,7 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
+                .setCustomAnimations(R.anim.appear, R.anim.disapier)
                 .replace(R.id.main_fragments_container, fragment, null)
                 .commit();
         hideKeyboard();

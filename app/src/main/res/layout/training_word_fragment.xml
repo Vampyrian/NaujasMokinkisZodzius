@@ -32,19 +32,20 @@
 
             <TextView
                 android:id="@+id/word"
+                style="@style/LerningTextView.Word"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical|center_horizontal"
                 android:onClick="@{trainingWordFragment::showTranslate}"
                 android:text="@{word.word}"
-                style="@style/LerningTextView.Word"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/translate"
+                style="@style/LerningTextView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginBottom="8dp"
@@ -53,7 +54,6 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:onClick="@{trainingWordFragment::showTranslate}"
                 android:text='@{showTranslate ? word.translateWord : " "}'
-                style="@style/LerningTextView"
                 app:layout_constraintBottom_toTopOf="@+id/know"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -73,11 +73,11 @@
 
         <Button
             android:id="@+id/dont_know"
+            style="@style/Button.False"
             android:layout_marginBottom="16dp"
             android:layout_marginStart="16dp"
-            android:text="@string/dont_know"
             android:onClick="@{trainingWordFragment::onDontKnowPressed}"
-            style="@style/Button.False"
+            android:text="@string/dont_know"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />
 
