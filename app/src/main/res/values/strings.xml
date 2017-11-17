@@ -18,8 +18,7 @@
     <string name="user_email">Vartotojas@vardas.com</string>
     <string name="know">Žinau</string>
     <string name="dont_know">Nežinau</string>
-    <string name="word">Įvesk Naują Žodį</string>
-    <string name="translate">Įvesk Vertimą</string>
+
     <string name="edit_button">Redagavimas</string>
 
     <string name="sign_in_email">Įvesk paštą</string>
@@ -78,11 +77,15 @@
     <!--Pamoku redagavimo langas-->
     <string name="new_lesson_name">Pamokos pavadinimas</string>
     <string name="new_lesson">Nauja pamoka</string>
+    <string name="new_word">Naujas Žodis</string>
 
     <!--Tabbar-->
     <style name="tab_bar_pamokos">Pamokos</style>
     <style name="tab_bar_mokintis">Mokintis</style>
 
+    <!--Word edit langas-->
+    <string name="word">Angliškas žodis</string>
+    <string name="translate">Lietuviškas vertimas</string>
 
 
 

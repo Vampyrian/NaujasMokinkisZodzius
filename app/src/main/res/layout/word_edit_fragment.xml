@@ -15,60 +15,96 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        style="@style/AppBackground"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/save_word"
-            style="@style/Button.ActionPositive"
-            android:layout_marginTop="8dp"
-            android:onClick="@{wordEditFragment::saveWordClicked}"
-            android:text="@string/save"
-            app:layout_constraintEnd_toEndOf="@+id/translate"
-            app:layout_constraintTop_toBottomOf="@+id/translate" />
 
-
-
-        <Button
-            android:id="@+id/delete_word"
-            style="@style/Button.ActionNegative"
-            android:layout_marginTop="8dp"
-            android:onClick="@{wordEditFragment::deleteWordClicked}"
-            android:text="@string/delete"
-            app:layout_constraintStart_toStartOf="@+id/translate"
-            app:layout_constraintTop_toBottomOf="@+id/translate" />
-
-
-        <EditText
-            android:id="@+id/word"
-            android:layout_width="300dp"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/root"
+            style="@style/DialogBackground"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:hint="@string/word"
-            android:inputType="textCapWords"
-            android:text="@{word.word}"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <Button
+                android:id="@+id/save_word"
+                style="@style/Button.ActionPositiveSelectableBackground"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="20dp"
+                android:onClick="@{wordEditFragment::saveWordClicked}"
+                android:text="@string/save"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/translate"
+                app:layout_constraintTop_toBottomOf="@+id/translate" />
 
+            <Button
+                android:id="@+id/delete_word"
+                style="@style/Button.ActionNegativeSelectableBackground"
+                android:layout_marginEnd="8dp"
+                android:onClick="@{wordEditFragment::deleteWordClicked}"
+                android:text="@string/delete"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/save_word"
+                app:layout_constraintEnd_toStartOf="@+id/save_word" />
 
-        <EditText
-            android:id="@+id/translate"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:hint="@string/translate"
-            android:inputType="textCapWords"
-            android:text="@{word.translateWord}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/word" />
+            <EditText
+                android:id="@+id/word"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="20dp"
+                android:hint="@string/word"
+                android:inputType="textCapWords"
+                android:text="@{word.word}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
 
+            <EditText
+                android:id="@+id/translate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="20dp"
+                android:hint="@string/translate"
+                android:inputType="textCapWords"
+                android:text="@{word.translateWord}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/word" />
 
+            <TextView
+                android:id="@+id/title"
+                style="@style/Text.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/new_word"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/stubView"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/save_word" />
+        </android.support.constraint.ConstraintLayout>
 
 
     </android.support.constraint.ConstraintLayout>

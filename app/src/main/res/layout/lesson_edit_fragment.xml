@@ -15,7 +15,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/mainAppBackground"
+        style="@style/AppBackground"
         android:orientation="vertical">
 
 
@@ -26,8 +26,7 @@
             android:layout_marginEnd="32dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
-            android:background="@color/white"
-            android:elevation="24dp"
+            style="@style/DialogBackground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
