@@ -25,12 +25,15 @@
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tab_item1"
+                style="@style/TabItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:text="@string/tab_bar_lesson" />
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tab_item2"
+                style="@style/TabItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tab_bar_training" />

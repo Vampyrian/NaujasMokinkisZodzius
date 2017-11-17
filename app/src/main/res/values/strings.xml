@@ -54,6 +54,7 @@
     <string name="toolbar_preference">Nustatymai</string>
     <string name="toolbar_sing_in">Prisijungti</string>
 
+
     <!--Kvaila pirma pamoka-->
     <string name="dummy_lesson">Pirma Pamoka</string>
     <string name="dummy_word1">Table</string>
@@ -79,16 +80,18 @@
     <string name="new_lesson">Nauja pamoka</string>
     <string name="new_word">Naujas Žodis</string>
 
+
     <!--Tabbar-->
     <style name="tab_bar_pamokos">Pamokos</style>
     <style name="tab_bar_mokintis">Mokintis</style>
+
 
     <!--Word edit langas-->
     <string name="word">Angliškas žodis</string>
     <string name="translate">Lietuviškas vertimas</string>
 
 
-
-
+    <!--Pamoku listo langas-->
+    <string name="edit">Redaguoti</string>
 
 </resources>

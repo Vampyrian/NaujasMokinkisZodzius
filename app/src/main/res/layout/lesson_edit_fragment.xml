@@ -37,7 +37,6 @@
                 android:layout_marginEnd="8dp"
                 android:onClick="@{lessonEditFragment::deleteLessonClicked}"
                 android:text="@string/delete"
-                android:textSize="16sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/save_lesson_name"
                 app:layout_constraintEnd_toStartOf="@+id/save_lesson_name" />
 
@@ -61,7 +60,6 @@
                 android:layout_marginTop="24dp"
                 android:onClick="@{lessonEditFragment::saveLessonClicked}"
                 android:text="@string/save"
-                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/word"
                 app:layout_constraintTop_toBottomOf="@+id/word" />
 

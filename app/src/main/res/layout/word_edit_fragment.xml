@@ -38,7 +38,6 @@
                 android:layout_marginTop="20dp"
                 android:onClick="@{wordEditFragment::saveWordClicked}"
                 android:text="@string/save"
-                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/translate"
                 app:layout_constraintTop_toBottomOf="@+id/translate" />
 
@@ -48,7 +47,6 @@
                 android:layout_marginEnd="8dp"
                 android:onClick="@{wordEditFragment::deleteWordClicked}"
                 android:text="@string/delete"
-                android:textSize="16sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/save_word"
                 app:layout_constraintEnd_toStartOf="@+id/save_word" />
 

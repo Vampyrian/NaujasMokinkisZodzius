@@ -14,72 +14,62 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/row_height"
+        android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/cardView_background"
-        app:cardCornerRadius="@dimen/cardView_corner_radius"
-        app:cardElevation="@dimen/cardView_elevation"
-        app:contentPadding="@dimen/cardView_content_pading">
+        app:cardElevation="2dp"
+        app:contentPadding="8dp">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/constrain_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <CheckBox
                 android:id="@+id/lesson_selected"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                style="@style/AvatarInRow"
+                android:button="@drawable/check_box_bg"
                 android:checked="@{lesson.selected == 1 ? true : false}"
                 android:onClick="@{() -> callback.onSelect(lesson)}"
-                android:textColorLink="@color/colorPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
-
-
-
-
             <TextView
                 android:id="@+id/lesson_name"
-                style="@style/RowTextView"
+                style="@style/Text.FirstLineInRow"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/textView_height"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="@dimen/row_start_pading"
-                android:layout_marginTop="8dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 android:onClick="@{() -> callback.onClick(lesson)}"
                 android:text="@{lesson.name}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/lesson_edit"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="70dp"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <ImageButton
                 android:id="@+id/lesson_edit"
-                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:layout_marginTop="8dp"
+                android:background="@drawable/ic_arrow_right"
                 android:contentDescription="@string/edit_button"
                 android:onClick="@{() -> callback.onEdit(lesson)}"
-                style="@style/ImageButtonInRow"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/edit_icon" />
-
-
-
+                app:layout_constraintTop_toTopOf="parent" />
+            <!--android:text="@string/edit"-->
+            <!--android:textSize="12sp"-->
+            <!--style="@style/Button.ActionPositiveSelectableBackground"-->
 
         </android.support.constraint.ConstraintLayout>
 
