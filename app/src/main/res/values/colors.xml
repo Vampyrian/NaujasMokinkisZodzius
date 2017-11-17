@@ -6,6 +6,7 @@
     <color name="cardView_background">#ffffff</color>
     <color name="ic_symbol">#070707</color>
     <color name="black">#000000</color>
+    <color name="black_light">#312e2e</color>
     <color name="white">#ffffff</color>
     <color name="red">#ff0b0f</color>
     <color name="green">#77f97b</color>
@@ -18,4 +19,5 @@
     <color name="gray">#7e7e7e</color>
     <color name="light_gray">#dbdbdb</color>
     <color name="semi_gray">#979797</color>
+    <color name="mainAppBackground">#e6e6e6</color>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -14,41 +15,82 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/mainAppBackground"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/save_lesson_name"
-            style="@style/Button.True"
-            android:layout_marginTop="8dp"
-            android:onClick="@{lessonEditFragment::saveLessonClicked}"
-            android:text="@string/save"
-            app:layout_constraintEnd_toEndOf="@+id/word"
-            app:layout_constraintTop_toBottomOf="@+id/word" />
 
-
-
-        <Button
-            android:id="@+id/delete_lesson_name"
-            style="@style/Button.False"
-            android:layout_marginTop="8dp"
-            android:onClick="@{lessonEditFragment::deleteLessonClicked}"
-            android:text="@string/delete"
-            app:layout_constraintStart_toStartOf="@+id/word"
-            app:layout_constraintTop_toBottomOf="@+id/word" />
-
-
-
-        <EditText
-            android:id="@+id/word"
-            android:layout_width="300dp"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/kortele"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:hint="@string/new_lesson_name"
-            android:inputType="textCapWords"
-            android:text="@{lesson.name}"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:background="@color/white"
+            android:elevation="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/delete_lesson_name"
+                style="@style/Button.ActionNegativeSelectableBackground"
+                android:layout_marginEnd="8dp"
+                android:onClick="@{lessonEditFragment::deleteLessonClicked}"
+                android:text="@string/delete"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/save_lesson_name"
+                app:layout_constraintEnd_toStartOf="@+id/save_lesson_name" />
+
+            <EditText
+                android:id="@+id/word"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="20dp"
+                android:hint="@string/new_lesson_name"
+                android:inputType="textCapWords"
+                android:text="@{lesson.name}"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <Button
+                android:id="@+id/save_lesson_name"
+                style="@style/Button.ActionPositiveSelectableBackground"
+                android:layout_marginTop="24dp"
+                android:onClick="@{lessonEditFragment::saveLessonClicked}"
+                android:text="@string/save"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/word"
+                app:layout_constraintTop_toBottomOf="@+id/word" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/Text.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/new_lesson"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/stubView"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/delete_lesson_name" />
+        </android.support.constraint.ConstraintLayout>
+
 
 
 

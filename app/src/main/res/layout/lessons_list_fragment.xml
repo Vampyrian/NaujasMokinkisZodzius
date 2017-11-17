@@ -14,6 +14,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/mainAppBackground"
         android:orientation="vertical">
 
         <android.support.design.widget.FloatingActionButton
@@ -31,9 +32,6 @@
             app:fabSize="normal"
             app:pressedTranslationZ="12dp"
             app:srcCompat="@drawable/ic_plus" />
-
-
-
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/lesson_recyclerView"

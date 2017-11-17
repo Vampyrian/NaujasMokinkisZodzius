@@ -19,7 +19,7 @@
 
         <Button
             android:id="@+id/save_word"
-            style="@style/Button.True"
+            style="@style/Button.ActionPositive"
             android:layout_marginTop="8dp"
             android:onClick="@{wordEditFragment::saveWordClicked}"
             android:text="@string/save"
@@ -30,7 +30,7 @@
 
         <Button
             android:id="@+id/delete_word"
-            style="@style/Button.False"
+            style="@style/Button.ActionNegative"
             android:layout_marginTop="8dp"
             android:onClick="@{wordEditFragment::deleteWordClicked}"
             android:text="@string/delete"
