@@ -93,5 +93,7 @@
 
     <!--Pamoku listo langas-->
     <string name="edit">Redaguoti</string>
+    <string name="lesson">Pamokų sąrašas</string>
+    <string name="word_list">Žodžių sąrašas</string>
 
 </resources>

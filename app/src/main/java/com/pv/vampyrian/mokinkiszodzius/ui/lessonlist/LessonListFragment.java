@@ -6,6 +6,8 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DividerItemDecoration;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import com.pv.vampyrian.mokinkiszodzius.databinding.LessonsListFragmentBinding;
 import com.pv.vampyrian.mokinkiszodzius.room.entityAndDao.LessonEntity;
 import com.pv.vampyrian.mokinkiszodzius.ui.MainActivity;
 import com.pv.vampyrian.mokinkiszodzius.ui.base.BaseFragment;
+import com.pv.vampyrian.mokinkiszodzius.ui.lessonedit.LessonEditDialogFragment;
 
 import java.util.List;
 
@@ -58,7 +61,18 @@ public class LessonListFragment extends BaseFragment {
 
 
 
+    private void showDialog(long id) {
 
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+        if (prev != null) {
+            fragmentTransaction.remove(prev);
+        }
+        fragmentTransaction.addToBackStack(null);
+
+        LessonEditDialogFragment dialogFragment = LessonEditDialogFragment.newInstance(id);
+        dialogFragment.show(fragmentTransaction, "dialog");
+    }
 
 
 
@@ -66,9 +80,11 @@ public class LessonListFragment extends BaseFragment {
     //***************Apdirbam UI paspaudimus
 
     public void fabButtonClicked() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-            ((MainActivity) getActivity()).showLessonEditFragment(-1);
-        }
+//        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+//            ((MainActivity) getActivity()).showLessonEditFragment(-1);
+//        }
+        showDialog(-1);
+
     }
 
     private final LessonsAdapterCallback mLessonAdapterCallback = new LessonsAdapterCallback() {
@@ -82,9 +98,11 @@ public class LessonListFragment extends BaseFragment {
         public void onEdit(LessonEntity lesson) {
             long lessonId = lesson.getLessonId();
 
-            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                ((MainActivity) getActivity()).showLessonEditFragment(lessonId);
-            }
+//            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+//                ((MainActivity) getActivity()).showLessonEditFragment(lessonId);
+//            }
+            showDialog(lessonId);
+
         }
 
         @Override

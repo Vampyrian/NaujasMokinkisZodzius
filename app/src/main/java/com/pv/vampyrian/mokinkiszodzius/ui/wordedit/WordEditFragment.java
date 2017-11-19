@@ -23,7 +23,6 @@ public class WordEditFragment extends BaseFragment {
     private static final String LESSON_ID = "lesson_id";
     private static final String WORD_ID = "word_id";
 
-
     private WordEditFragmentBinding mBinging;
 
     @Nullable
@@ -70,6 +69,14 @@ public class WordEditFragment extends BaseFragment {
     }
 
     public void deleteWordClicked (View view) {
+        if (getArguments().getLong(WORD_ID) != -1) {
+            WordEntity word = mBinging.getWord();
+            sharedViewModel.deteleWord(word);
+        }
+        showWordListFragment();
+    }
+
+    public void deleteWordClicked () {
         if (getArguments().getLong(WORD_ID) != -1) {
             WordEntity word = mBinging.getWord();
             sharedViewModel.deteleWord(word);

@@ -1,5 +1,7 @@
 package com.pv.vampyrian.mokinkiszodzius.ui.base;
 
+import android.support.v4.app.FragmentManager;
+
 import com.pv.vampyrian.mokinkiszodzius.R;
 import com.pv.vampyrian.mokinkiszodzius.ui.lessonedit.LessonEditFragment;
 import com.pv.vampyrian.mokinkiszodzius.ui.lessonlist.LessonListFragment;
@@ -15,9 +17,22 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        showLessonsListFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        int backStackSize = fragmentManager.getBackStackEntryCount();
+        if (backStackSize > 0) {
+            fragmentManager.popBackStack();
+        } else {
+            showLessonsListFragment();
+        }
         return true;
     }
+
+    private void clearBackStack() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+    }
+
+
     /*
     Navigacija tarp fragmentu
     */
@@ -28,7 +43,8 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .setCustomAnimations(R.anim.appear, R.anim.disapier)
+                .setCustomAnimations(R.anim.slide_left_in, R.anim.slide_left_out)
+                .addToBackStack(null)
                 .replace(R.id.main_fragments_container, fragment, null)
                 .commit();
         hideKeyboard();
@@ -40,7 +56,6 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .setCustomAnimations(R.anim.appear, R.anim.disapier)
                 .replace(R.id.main_fragments_container, fragment, null)
                 .commit();
         hideKeyboard();
@@ -52,7 +67,6 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .setCustomAnimations(R.anim.appear, R.anim.disapier)
                 .replace(R.id.main_fragments_container, fragment, null)
                 .commit();
         hideKeyboard();
