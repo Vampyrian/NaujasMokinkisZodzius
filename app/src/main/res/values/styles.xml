@@ -137,6 +137,13 @@
     </style>
 
 
+    //*******************************Nera zodziu arba nera pamokos
+    <style name="LoadingTextView">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
 
 
 

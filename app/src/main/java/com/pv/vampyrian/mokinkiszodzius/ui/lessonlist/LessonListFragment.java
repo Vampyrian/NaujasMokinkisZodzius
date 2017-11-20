@@ -51,6 +51,11 @@ public class LessonListFragment extends BaseFragment {
             @Override
             public void onChanged(@Nullable List<LessonEntity> lessonList) {
                 mLessonAdapter.setLessonList(lessonList);
+                if(lessonList.size() > 0) {
+                    mBinding.setEmptyLessonList(false);
+                } else {
+                    mBinding.setEmptyLessonList(true);
+                }
             }
         });
     }

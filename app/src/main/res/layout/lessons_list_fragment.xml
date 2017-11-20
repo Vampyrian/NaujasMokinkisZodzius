@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View"/>
         <variable
-            name="isLoading"
+            name="emptyLessonList"
             type="boolean" />
-
         <variable
             name="lessonListFragment"
             type="com.pv.vampyrian.mokinkiszodzius.ui.lessonlist.LessonListFragment" />
@@ -61,6 +60,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:pressedTranslationZ="12dp"
             app:srcCompat="@drawable/ic_plus" />
+
+        <TextView
+            android:id="@+id/textView_no_lesson"
+            style="@style/LoadingTextView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/empty_lesson_list"
+            android:visibility="@{emptyLessonList ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
     </android.support.constraint.ConstraintLayout>
 
 </layout>

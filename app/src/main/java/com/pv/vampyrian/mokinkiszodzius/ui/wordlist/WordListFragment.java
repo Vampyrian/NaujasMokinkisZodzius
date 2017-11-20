@@ -47,15 +47,19 @@ public class WordListFragment extends BaseFragment {
             @Override
             public void onChanged(@Nullable List<WordEntity> wordEntities) {
                 mWordAdapter.setWordList(wordEntities);
+
+                if (wordEntities.size() > 0) {
+                    mBinding.setEmptyWordList(false);
+                } else {
+                    mBinding.setEmptyWordList(true);
+                }
             }
         });
     }
 
 
 
-
-    private void showDialog(long id) {
-
+    private void showDialogFragment(long id) {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         Fragment prev = getFragmentManager().findFragmentByTag("dialog");
         if (prev != null) {
@@ -69,38 +73,15 @@ public class WordListFragment extends BaseFragment {
 
 
     //**********************Apdirbame UI paspaudimus
-//    public void fabButtonClicked(View view) {
-////        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-////            ((MainActivity) getActivity())
-////                    .showWordEditFragmentWithLessonIdAndWordId(getArguments().getLong(LESSON_ID),-1);
-////        }
-//        showDialog(-1);
-//    }
-//
-//    public void fabButtonClicked(boolean aaa) {
-//        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-//            ((MainActivity) getActivity())
-//                    .showWordEditFragmentWithLessonIdAndWordId(getArguments().getLong(LESSON_ID),-1);
-//        }
-//    }
 
     public void fabButtonClicked() {
-//        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-//            ((MainActivity) getActivity())
-//                    .showWordEditFragmentWithLessonIdAndWordId(getArguments().getLong(LESSON_ID),-1);
-//        }
-        showDialog(-1);
+        showDialogFragment(-1);
     }
-
 
     private final WordAdapterCallback mWordAdapterCallback = new WordAdapterCallback() {
         @Override
         public void onEdit(WordEntity word) {
-//            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-//                ((MainActivity) getActivity())
-//                        .showWordEditFragmentWithLessonIdAndWordId(getArguments().getLong(LESSON_ID),word.getWordId());
-//            }
-            showDialog(word.getWordId());
+            showDialogFragment(word.getWordId());
         }
     };
 

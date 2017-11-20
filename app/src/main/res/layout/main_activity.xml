@@ -12,6 +12,7 @@
     </data>
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
@@ -28,7 +29,6 @@
                 style="@style/TabItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="@string/tab_bar_lesson" />
 
             <android.support.design.widget.TabItem
@@ -41,26 +41,15 @@
         </android.support.design.widget.TabLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/main_fragments_container"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tabLayout">
+        android:id="@+id/main_fragments_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout">
 
         </android.support.constraint.ConstraintLayout>
-
-        <!--<android.support.constraint.ConstraintLayout-->
-            <!--android:id="@+id/main_fragments_container"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="0dp"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/tabLayout">-->
-
-        <!--</android.support.constraint.ConstraintLayout>-->
 
 
     </android.support.constraint.ConstraintLayout>
