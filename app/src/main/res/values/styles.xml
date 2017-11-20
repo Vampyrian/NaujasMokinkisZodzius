@@ -155,7 +155,7 @@
     <!--TabLayout-->
     <style name="TabLayout">
         <item name="android:background">@color/colorPrimary</item>
-        <item name="android:elevation">0dp</item>
+        <item name="android:elevation">8dp</item>
         <item name="tabIndicatorHeight">2dp</item>
         <item name="tabSelectedTextColor">@color/white</item>
         <item name="android:textAllCaps">true</item>

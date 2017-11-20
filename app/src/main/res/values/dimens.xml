@@ -11,7 +11,7 @@
     <dimen name="cardView_content_pading">8dp</dimen>
     <dimen name="cardView_corner_radius">0dp</dimen>
     <dimen name="cardView_elevation">8dp</dimen>
-    <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="fab_elevation">12dp</dimen>
     <dimen name="row_start_pading">65dp</dimen>
 
     <integer name="fragment_animation">150</integer>
