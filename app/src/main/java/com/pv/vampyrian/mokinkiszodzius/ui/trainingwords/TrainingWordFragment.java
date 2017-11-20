@@ -9,7 +9,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.pv.vampyrian.mokinkiszodzius.R;
 import com.pv.vampyrian.mokinkiszodzius.databinding.TrainingWordFragmentBinding;
@@ -48,12 +47,13 @@ public class TrainingWordFragment extends BaseFragment {
             @Override
             public void onChanged(@Nullable List<WordEntity> wordEntities) {
                 if (wordEntities.size()>0) {
+                    mBinding.setEmptyTrainingList(false);
                     mWordList = wordEntities;
                     if(mBinding.getWord() == null) {
                         showNextWord();
                     }
                 } else {
-                    Toast.makeText(getContext(), R.string.toast_no_lesson_sellected, Toast.LENGTH_LONG).show();
+                    mBinding.setEmptyTrainingList(true);
                 }
             }
         });

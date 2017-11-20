@@ -95,7 +95,10 @@
     <string name="edit">Redaguoti</string>
     <string name="lesson">Pamokų sąrašas</string>
     <string name="word_list">Žodžių sąrašas</string>
+
+
     <string name="empty_word_list">Šioje pamokoje nėra sukurtų žodžių</string>
     <string name="empty_lesson_list">Nėra sukurtų pamokų</string>
+    <string name="empty_training_list">Nėra pasirinkta mokinimosi pamoka, arba pasirinktoje pamokoje nėra sukurtų žodžių</string>
 
 </resources>

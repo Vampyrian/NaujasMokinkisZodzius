@@ -39,7 +39,7 @@
                 android:id="@+id/lesson_name"
                 style="@style/Text.FirstLineInRow"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:onClick="@{() -> callback.onEdit(lesson)}"
                 android:text="@{lesson.name}"
                 app:layout_constraintBottom_toBottomOf="parent"
