@@ -41,7 +41,7 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .setCustomAnimations(R.anim.slide_right_in, R.anim.slide_right_out)
+//                .setCustomAnimations(R.anim.slide_right_in, R.anim.slide_right_out)
                 .replace(R.id.main_fragments_container, fragment, null)
                 .commit();
         hideKeyboard();
@@ -75,7 +75,7 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .setCustomAnimations(R.anim.appear, R.anim.disapier)
+//                .setCustomAnimations(R.anim.appear, R.anim.disapier)
                 .replace(R.id.main_fragments_container, fragment, null)
                 .commit();
         hideKeyboard();
@@ -111,7 +111,7 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .setCustomAnimations(R.anim.appear, R.anim.disapier)
+//                .setCustomAnimations(R.anim.appear, R.anim.disapier)
                 .replace(R.id.main_fragments_container, fragment, null)
                 .commit();
         hideKeyboard();
@@ -122,7 +122,7 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .setCustomAnimations(R.anim.appear, R.anim.disapier)
+//                .setCustomAnimations(R.anim.appear, R.anim.disapier)
                 .replace(R.id.main_fragments_container, fragment, null)
                 .commit();
         hideKeyboard();

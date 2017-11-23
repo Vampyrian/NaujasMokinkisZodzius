@@ -14,7 +14,6 @@ public class InjectorUtils {
         return new SharedViewModelFactory(repository);
     }
 
-
     public static Repository provideRepository (Context context) {
         AppDatabase roomDb = AppDatabase.getInstance(context);
         AppExecutor appExecutor = AppExecutor.getInstance();
