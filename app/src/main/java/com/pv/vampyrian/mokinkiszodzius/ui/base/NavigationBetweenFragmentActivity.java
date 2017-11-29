@@ -117,7 +117,8 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
         hideKeyboard();
     }
 
-    public void showSignInFragment () {
+
+    public void showSignInFragment() {
         SignInFragment fragment = new SignInFragment();
 
         getSupportFragmentManager()
@@ -127,4 +128,5 @@ public abstract class NavigationBetweenFragmentActivity extends BaseActivity {
                 .commit();
         hideKeyboard();
     }
+
 }

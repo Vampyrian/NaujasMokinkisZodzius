@@ -62,10 +62,6 @@ public class LessonListFragment extends BaseFragment {
 
 
 
-
-
-
-
     private void showDialog(long id) {
 
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
@@ -85,9 +81,6 @@ public class LessonListFragment extends BaseFragment {
     //***************Apdirbam UI paspaudimus
 
     public void fabButtonClicked() {
-//        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-//            ((MainActivity) getActivity()).showLessonEditFragment(-1);
-//        }
         showDialog(-1);
 
     }
@@ -102,12 +95,7 @@ public class LessonListFragment extends BaseFragment {
         @Override
         public void onEdit(LessonEntity lesson) {
             long lessonId = lesson.getLessonId();
-
-//            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-//                ((MainActivity) getActivity()).showLessonEditFragment(lessonId);
-//            }
             showDialog(lessonId);
-
         }
 
         @Override

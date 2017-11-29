@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View"/>
         <variable
-            name="lesson"
-            type="com.pv.vampyrian.mokinkiszodzius.room.entityAndDao.LessonEntity" />
+            name="showTabLayout"
+            type="boolean"/>
 
     </data>
 
@@ -22,6 +22,7 @@
             style="@style/TabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="@{showTabLayout ? View.VISIBLE : View.GONE}"
             app:tabIndicatorColor="@color/colorAccent">
 
             <android.support.design.widget.TabItem

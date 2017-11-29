@@ -74,6 +74,13 @@
     <string name="tab_bar_lesson">Pamokos</string>
     <string name="tab_bar_training">Mokintis</string>
 
+    <!--Toast-->
+    <string name="toastNeivestasEmailas">Neivestas elektroninio pašto adresas</string>
+    <string name="toastNeivestasSlaptazodis">Neivestas slaptažodis</string>
+    <string name="toastSlaptazodisPerMazas">Slaptažodis turi būti ne mažesnis nei 6 simboliai</string>
+    <string name="toastPaskyraNesukurta">Paskyros sukurti nepavyko</string>
+    <string name="toastNepavykoPrisijungti">Prie paskyros prisijungti nepavyko</string>
+
 
 
     <!--Pamoku redagavimo langas-->

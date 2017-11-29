@@ -1,22 +1,17 @@
 package com.pv.vampyrian.mokinkiszodzius.ui;
 
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.pv.vampyrian.mokinkiszodzius.R;
 import com.pv.vampyrian.mokinkiszodzius.databinding.MainActivityBinding;
-import com.pv.vampyrian.mokinkiszodzius.room.Repository;
 import com.pv.vampyrian.mokinkiszodzius.ui.base.NavigationBetweenFragmentActivity;
-import com.pv.vampyrian.mokinkiszodzius.util.InjectorUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends NavigationBetweenFragmentActivity{
 
@@ -26,6 +21,8 @@ public class MainActivity extends NavigationBetweenFragmentActivity{
 
     private MainActivityBinding mBinding;
 
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,9 +30,19 @@ public class MainActivity extends NavigationBetweenFragmentActivity{
         mBinding.tabLayout.setOnTabSelectedListener(tabSelectedListener);
 
         getSupportActionBar().setElevation(0);
+        mAuth = FirebaseAuth.getInstance();
+    }
 
-        chechPreference();
-        showLessonsListFragment();
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            showLessonsListFragment();
+        } else {
+            showSignInFragment();
+            mBinding.setShowTabLayout(false);
+        }
     }
 
     @Override
@@ -87,48 +94,11 @@ public class MainActivity extends NavigationBetweenFragmentActivity{
         }
     };
 
-
-
-
-
-
-
-
-
-    /*
-                   Sita funkcija irasys pirmus durnus duomenis jeigu apsas pasileidzia pirma karta
-         */
-    private void chechPreference() {
-        SharedPreferences settings = getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE);
-        boolean isFirstStart = settings.getBoolean(IS_FIRST_START, true);
-
-        if (isFirstStart) {
-            List<String> wordList = new ArrayList<>();
-            List<String> translateList = new ArrayList<>();
-            String newLesson = getString(R.string.dummy_lesson);
-            wordList.add(getString(R.string.dummy_word1));
-            translateList.add(getString(R.string.dummy_word_translate1));
-            wordList.add(getString(R.string.dummy_word2));
-            translateList.add(getString(R.string.dummy_word_translate2));
-            wordList.add(getString(R.string.dummy_word3));
-            translateList.add(getString(R.string.dummy_word_translate3));
-            wordList.add(getString(R.string.dummy_word4));
-            translateList.add(getString(R.string.dummy_word_translate4));
-            wordList.add(getString(R.string.dummy_word5));
-            translateList.add(getString(R.string.dummy_word_translate5));
-            wordList.add(getString(R.string.dummy_word6));
-            translateList.add(getString(R.string.dummy_word_translate6));
-            wordList.add(getString(R.string.dummy_word7));
-            translateList.add(getString(R.string.dummy_word_translate7));
-
-            Repository repository = InjectorUtils.provideRepository(getApplicationContext());
-            repository.initDummyData(newLesson, wordList, translateList);
-        }
-
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putBoolean(IS_FIRST_START, false);
-        editor.apply();
+    public void showTabLayout() {
+        mBinding.setShowTabLayout(true);
+        showLessonsListFragment();
     }
+
 
 
 }
