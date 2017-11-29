@@ -41,7 +41,7 @@
     <string name="preference_randomizing">Maišyti</string>
     <string name="preference_first_show_translate">Pirma vertimas</string>
     <string name="preference_random_summary">Žodžius rodyti atsitiktine tvarka</string>
-    <string name="preference_translate_summary">Pirma rodyti žodžio vertimą</string>
+    <string name="preference_translate_summary">Mokinantis pirma rodyti žodžio vertimą</string>
 
 
     <!--Toolbar aprasymai-->
@@ -75,6 +75,7 @@
     <string name="tab_bar_training">Mokintis</string>
 
 
+
     <!--Pamoku redagavimo langas-->
     <string name="new_lesson_name">Pamokos pavadinimas</string>
     <string name="new_lesson">Nauja pamoka</string>
@@ -96,9 +97,12 @@
     <string name="lesson">Pamokų sąrašas</string>
     <string name="word_list">Žodžių sąrašas</string>
 
+    <!--Sign In langas-->
+    <string name="sign_in_title">Prisijungti prie paskyros</string>
 
     <string name="empty_word_list">Šioje pamokoje nėra sukurtų žodžių</string>
     <string name="empty_lesson_list">Nėra sukurtų pamokų</string>
     <string name="empty_training_list">Nėra pasirinkta mokinimosi pamoka, arba pasirinktoje pamokoje nėra sukurtų žodžių</string>
+
 
 </resources>

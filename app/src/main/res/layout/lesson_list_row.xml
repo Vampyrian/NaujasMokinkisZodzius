@@ -42,6 +42,7 @@
                 android:layout_height="0dp"
                 android:onClick="@{() -> callback.onEdit(lesson)}"
                 android:text="@{lesson.name}"
+                tools:text="First Lesson"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/lesson_edit"
                 app:layout_constraintStart_toStartOf="@+id/guideline"

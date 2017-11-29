@@ -16,9 +16,7 @@ import com.pv.vampyrian.mokinkiszodzius.room.entityAndDao.WordEntity;
 import com.pv.vampyrian.mokinkiszodzius.ui.base.BaseFragment;
 import com.pv.vampyrian.mokinkiszodzius.util.WordUtil;
 
-import java.util.ArrayList;
 import java.util.List;
-
 
 public class TrainingWordFragment extends BaseFragment {
 
@@ -26,7 +24,7 @@ public class TrainingWordFragment extends BaseFragment {
     private static int SUNBSTACT_WHEN_DONT_KNOW = 5;
 
     private TrainingWordFragmentBinding mBinding;
-    private List<WordEntity> mWordList = new ArrayList<>();
+    private List<WordEntity> mWordList;
     private int mWordId = 0;
     private boolean mRandom;
     private boolean mFirstShowTranslate;
@@ -43,6 +41,8 @@ public class TrainingWordFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        setPreference();
+
         sharedViewModel.getAllWordFromSelectedLesson().observe(this, new Observer<List<WordEntity>>() {
             @Override
             public void onChanged(@Nullable List<WordEntity> wordEntities) {
@@ -57,7 +57,6 @@ public class TrainingWordFragment extends BaseFragment {
                 }
             }
         });
-        setPreference();
     }
 
     private void setPreference() {
@@ -71,11 +70,11 @@ public class TrainingWordFragment extends BaseFragment {
         int wordId = WordUtil.getNext(mWordId, mWordList.size(), mRandom);
         mWordId = wordId;
 
-        if (mWordList.size()>0) {
-            WordEntity newWord = mWordList.get(mWordId);
+        if (mWordList != null) {
+            WordEntity newWord = new WordEntity();
             if (mFirstShowTranslate) {
-                String translate = newWord.getTranslateWord();
-                String wordString = newWord.getWord();
+                String translate = mWordList.get(mWordId).getTranslateWord();
+                String wordString = mWordList.get(mWordId).getWord();
                 newWord.setTranslateWord(wordString);
                 newWord.setWord(translate);
             }
@@ -84,15 +83,15 @@ public class TrainingWordFragment extends BaseFragment {
     }
 
     //**************************UI paspaudimu apdirbimas
-    public void showTranslate(View view) {
+    public void showTranslate() {
         mBinding.setShowTranslate(true);
     }
 
-    public void onKnowPressed(View view) {
+    public void onKnowPressed() {
         if (!mBinding.getShowTranslate()) {
             mBinding.setShowTranslate(true);
         } else {
-            if (mWordList.size()>0) {
+            if (mWordList != null) {
                 WordEntity word = mWordList.get(mWordId);
                 if (word != null) {
                     int oldRating = word.getRating();
@@ -104,11 +103,11 @@ public class TrainingWordFragment extends BaseFragment {
         }
     }
 
-    public void onDontKnowPressed(View view) {
+    public void onDontKnowPressed() {
         if (!mBinding.getShowTranslate()) {
             mBinding.setShowTranslate(true);
         } else {
-            if (mWordList.size()>0) {
+            if (mWordList != null) {
                 WordEntity word = mWordList.get(mWordId);
                 if (word != null) {
                     int oldRating = word.getRating();

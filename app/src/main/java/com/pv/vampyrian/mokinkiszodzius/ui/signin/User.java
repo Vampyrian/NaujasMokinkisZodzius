@@ -10,8 +10,6 @@ public class User {
         mPassword = password;
     }
 
-
-
     public String getmEmail() {
         return mEmail;
     }

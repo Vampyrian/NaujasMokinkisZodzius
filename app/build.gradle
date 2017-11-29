@@ -9,7 +9,7 @@ android {
         applicationId "com.pv.vampyrian.mokinkiszodzius"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 4
+        versionCode 5
         versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
@@ -59,7 +59,7 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.12'
 
     //FIREBASE'
-    implementation 'com.google.firebase:firebase-core:11.6.0'
-    implementation 'com.google.firebase:firebase-auth:11.6.0'
+    implementation 'com.google.firebase:firebase-core:11.6.2'
+    implementation 'com.google.firebase:firebase-auth:11.6.2'
 }
 apply plugin: 'com.google.gms.google-services'
